@@ -1,9 +1,12 @@
+const withBuilderDevTools = require('@builder.io/dev-tools/remix')();
+
 /** @type {import('@remix-run/dev').AppConfig} */
-module.exports = {
+module.exports = withBuilderDevTools({
   appDirectory: 'app',
   ignoredRouteFiles: ['**/.*'],
   watchPaths: ['./public', './.env'],
   server: './server.ts',
+
   /**
    * The following settings are required to deploy Hydrogen apps to Oxygen:
    */
@@ -26,4 +29,4 @@ module.exports = {
     v2_routeConvention: true,
     v2_normalizeFormMethod: true,
   },
-};
+});
